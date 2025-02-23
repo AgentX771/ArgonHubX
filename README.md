@@ -23,7 +23,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/SubZero/mai
 All our scripts are protected using **Argon Security** to avoid bans, cracking, malicious use, scams
 
 ## 🌟 Contribute
-Do you have any suggestions? Write me a private message on my discord about your suggestion **agentx77**!
+Do you have any suggestions? Write me a private message on my discord about your suggestion **agentx77**
 
 ---
 💖 *Thank you for using Argon. Enjoy your games with more benefits!*
