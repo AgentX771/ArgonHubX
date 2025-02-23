@@ -1,6 +1,6 @@
 # 🎮 Argon Hub X 🎮
 
-![Banner](https://your-image-url.com)
+![Banner](https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/LogoArgon.png)
 
 Welcome to **Argon Hub X**, The ultimate script for Blade Ball, featuring a user-friendly graphical interface designed for gamers. Our script is continuously updated to ensure a seamless experience, free from errors or issues.
 
