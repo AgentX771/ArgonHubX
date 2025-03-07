@@ -19,4 +19,4 @@ function argon_module.getBall()
     end
 end
 
-return argon_module
+return argon_module;
