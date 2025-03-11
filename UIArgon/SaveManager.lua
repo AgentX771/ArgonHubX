@@ -66,7 +66,7 @@ local InterfaceManager = {} do
         Security:AddToggle("AcrylicToggle", {
             Title = "Anti Cheat Bypass",
             Description = "Automatically patch all possible anti-cheats in the game.",
-            Default = Settings.Acrylic,
+            Default = true,
             Callback = function(Value)
             end
         })
@@ -74,7 +74,7 @@ local InterfaceManager = {} do
         Security:AddToggle("UndetectableToggle", {
             Title = "Undetectable",
             Description = "Avoid being banned from Roblox for using cheats.",
-            Default = Settings.Acrylic,
+            Default = true,
             Callback = function(Value)
             end
         })
