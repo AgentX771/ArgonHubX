@@ -68,6 +68,7 @@ local InterfaceManager = {} do
             Description = "Automatically patch all possible anti-cheats in the game.",
             Default = true,
             Callback = function(Value)
+                self:SaveSettings()
             end
         })
 
@@ -76,6 +77,7 @@ local InterfaceManager = {} do
             Description = "Avoid being banned from Roblox for using cheats.",
             Default = true,
             Callback = function(Value)
+                self:SaveSettings()
             end
         })
 
