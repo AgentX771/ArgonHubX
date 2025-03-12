@@ -10,7 +10,7 @@ local InterfaceManager = {} do
     }
 
     function InterfaceManager:SetFolder(folder)
-		self.Folder = folder;
+		self.Folder = folder
 		self:BuildFolderTree()
 	end
 
@@ -20,8 +20,7 @@ local InterfaceManager = {} do
 
     function InterfaceManager:BuildFolderTree()
 		local paths = {}
-
-		local parts = self.Folder:split("/")
+		local parts = string.split(self.Folder, "/")
 		for idx = 1, #parts do
 			paths[#paths + 1] = table.concat(parts, "/", 1, idx)
 		end
@@ -38,18 +37,18 @@ local InterfaceManager = {} do
 	end
 
     function InterfaceManager:SaveSettings()
-        writefile(self.Folder .. "/options.json", httpService:JSONEncode(InterfaceManager.Settings))
+        writefile(self.Folder .. "/options.json", httpService:JSONEncode(self.Settings))
     end
 
     function InterfaceManager:LoadSettings()
         local path = self.Folder .. "/options.json"
         if isfile(path) then
             local data = readfile(path)
-            local success, decoded = pcall(httpService.JSONDecode, httpService, data)
+            local success, decoded = pcall(function() return httpService:JSONDecode(data) end)
 
             if success then
                 for i, v in next, decoded do
-                    InterfaceManager.Settings[i] = v
+                    self.Settings[i] = v
                 end
             end
         end
@@ -58,9 +57,29 @@ local InterfaceManager = {} do
     function InterfaceManager:BuildInterfaceSection(tab)
         assert(self.Library, "Must set InterfaceManager.Library")
 		local Library = self.Library
-        local Settings = InterfaceManager.Settings
+        local Settings = self.Settings
 
-        InterfaceManager:LoadSettings()
+        self:LoadSettings()
+
+        local Security = tab:AddSection("Argon Security")
+
+        Security:AddToggle("AcrylicToggle", {
+            Title = "Anti Cheat Bypass",
+            Description = "Automatically patch all possible anti-cheats in the game.",
+            Default = true,
+            Callback = function(Value)
+                self:SaveSettings()
+            end
+        })
+
+        Security:AddToggle("UndetectableToggle", {
+            Title = "Undetectable",
+            Description = "Avoid being banned from Roblox for using cheats.",
+            Default = true,
+            Callback = function(Value)
+                self:SaveSettings()
+            end
+        })
 
 		local section = tab:AddSection("Interface")
 
@@ -72,7 +91,7 @@ local InterfaceManager = {} do
 			Callback = function(Value)
 				Library:SetTheme(Value)
                 Settings.Theme = Value
-                InterfaceManager:SaveSettings()
+                self:SaveSettings()
 			end
 		})
 
@@ -86,7 +105,7 @@ local InterfaceManager = {} do
 				Callback = function(Value)
 					Library:ToggleAcrylic(Value)
                     Settings.Acrylic = Value
-                    InterfaceManager:SaveSettings()
+                    self:SaveSettings()
 				end
 			})
 		end
@@ -98,14 +117,14 @@ local InterfaceManager = {} do
 			Callback = function(Value)
 				Library:ToggleTransparency(Value)
 				Settings.Transparency = Value
-                InterfaceManager:SaveSettings()
+                self:SaveSettings()
 			end
 		})
 	
 		local MenuKeybind = section:AddKeybind("MenuKeybind", { Title = "Minimize Bind", Default = Settings.MenuKeybind })
 		MenuKeybind:OnChanged(function()
 			Settings.MenuKeybind = MenuKeybind.Value
-            InterfaceManager:SaveSettings()
+            self:SaveSettings()
 		end)
 		Library.MinimizeKeybind = MenuKeybind
     end
