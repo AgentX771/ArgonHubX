@@ -61,7 +61,7 @@ local InterfaceManager = {} do
 
         self:LoadSettings()
 
-        local Security = tab:AddSection("Argon Security")
+        local Security = tab:AddSection("Security")
 
         Security:AddToggle("AcrylicToggle", {
             Title = "Anti Cheat Bypass",
