@@ -840,6 +840,8 @@ local IconModule = {
 		["show_chart"] = "http://www.roblox.com/asset/?id=6034934032";
 		["insert_chart_outlined"] = "http://www.roblox.com/asset/?id=6034925606";
 		["vertical_align_bottom"] = "http://www.roblox.com/asset/?id=6034934023";
+		["eye"] = "http://www.roblox.com/asset/?id=138233211181403";
+		["swords"] = "http://www.roblox.com/asset/?id=107499300705674";
 		["subscript"] = "http://www.roblox.com/asset/?id=6034934059";
 		["format_align_justify"] = "http://www.roblox.com/asset/?id=6034900721";
 		["format_clear"] = "http://www.roblox.com/asset/?id=6034910902";
