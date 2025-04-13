@@ -2,7 +2,6 @@ local plr = game:GetService("Players").LocalPlayer
 if plr.Name == "cooluwuboy123sigma" then
     plr:Kick("Banned for mocking the leader")
 end
-
 local superCoolGameID = 87854376962069
 local myEpicGameID = game.PlaceId
 
