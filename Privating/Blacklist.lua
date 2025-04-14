@@ -8,14 +8,15 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 local reason = bannedPlayers[LocalPlayer.UserId]
+
 if reason then
     LocalPlayer:Kick(baseMessage .. reason)
-end
-wait(10)
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-if LocalPlayer and Players:FindFirstChild(LocalPlayer.Name) then
-    LocalPlayer:Destroy()
+    wait(10)
+    
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    
+    if LocalPlayer and Players:FindFirstChild(LocalPlayer.Name) then
+        LocalPlayer:Destroy()
+    end
 end
