@@ -1,6 +1,5 @@
 local bannedPlayers = {
     [8016396684] = "Mocking the Creator",
-    [7195212036] = "Mocking the Creator",
 }
 
 local baseMessage = "Argon Hub X has determined that his behavior on the platform has been inappropriate and has been banned for: "
