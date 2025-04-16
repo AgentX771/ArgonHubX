@@ -1,14 +1,14 @@
 # 🎮 Argon Hub X 🎮
 
-![Banner](https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/LogoArgon.png)
+![Banner](https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/ArgonHXL.lua)
 
-Welcome to **Argon Hub X**, The ultimate script for Blade Ball, featuring a user-friendly graphical interface designed for gamers. Our script is continuously updated to ensure a seamless experience, free from errors or issues.
+Welcome to **Argon Hub X**, The ultimate script for All Games, featuring a user-friendly graphical interface designed for gamers. Our script is continuously updated to ensure a seamless experience, free from errors or issues.
 
 ## 🎮 Characteristics
 ✅ Scripts optimized for better performance.  
 ✅ Exclusive options for All Games.  
 ✅ User-friendly and gamer-friendly user interface.  
-✅ We use Luraph to prevent our code from being leaked or used for malicious purposes.  
+✅ We use WeAreDevs to prevent our code from being leaked or used for malicious purposes.  
 ✅ Key validation system with attractive design.  
 
 ## 📜 Supported Games
