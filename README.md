@@ -6,21 +6,21 @@ Welcome to **Argon Hub X**, The ultimate script for Blade Ball, featuring a user
 
 ## 🎮 Characteristics
 ✅ Scripts optimized for better performance.  
-✅ Exclusive options for Blade Ball.  
+✅ Exclusive options for All Games.  
 ✅ User-friendly and gamer-friendly user interface.  
 ✅ We use Luraph to prevent our code from being leaked or used for malicious purposes.  
 ✅ Key validation system with attractive design.  
 
 ## 📜 Supported Games
-🔹 **Blade Ball** - Auto Parry, Auto-Spam y más
+🔹 **Glass Bridge**
 
 ## 🛠 Installation
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/SubZero/main/SubZero.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Loader.lua", true))()
 ```
 
 ## 🔒 Safety and Protection
-All our scripts are protected using **Argon Security** to avoid bans, cracking, malicious use, scams
+All our scripts are protected using **Argon Guardian** to avoid bans, cracking, malicious use, scams
 
 ## 🌟 Contribute
 Do you have any suggestions? Write me a private message on my discord about your suggestion **agentx77**
