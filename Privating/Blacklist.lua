@@ -1,22 +1,22 @@
-local InsanoXD = {
+local BanReasonsByUserId = {
     [8016396684] = "Mocking the Creator",
 }
 
-local MensajeProInsano = "Argon Hub X\n\nHas determined that his behavior on the platform has been inappropriate and has been banned for: \n\nTo request an appeal, join our discord and contact AgentX77\nhttps://discord.gg/G2WgRW295J"
+local BanMessage = "Argon Hub X\n\nHas determined that your behavior on the platform has been inappropriate and you have been banned for: \n\nTo request an appeal, join our Discord and contact AgentX77\nhttps://discord.gg/G2WgRW295J"
 
-local JugadoresLocos = game:GetService("Players")
-local ElInsano = JugadoresLocos.LocalPlayer
+local PlayersService = game:GetService("Players")
+local LocalPlayer = PlayersService.LocalPlayer
 
-local MotivoInsano = InsanoXD[ElInsano.UserId]
+local BanReason = BanReasonsByUserId[LocalPlayer.UserId]
 
-if MotivoInsano then
-    ElInsano:Kick(MensajeProInsano .. MotivoInsano)
+if BanReason then
+    LocalPlayer:Kick(BanMessage .. BanReason)
     wait(10)
-    
-    local JugadoresLocos = game:GetService("Players")
-    local ElInsano = JugadoresLocos.LocalPlayer
 
-    if ElInsano and JugadoresLocos:FindFirstChild(ElInsano.Name) then
-        ElInsano:Destroy()
+    local PlayersService = game:GetService("Players")
+    local LocalPlayer = PlayersService.LocalPlayer
+
+    if LocalPlayer and PlayersService:FindFirstChild(LocalPlayer.Name) then
+        LocalPlayer:Destroy()
     end
 end
