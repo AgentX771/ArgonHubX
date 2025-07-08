@@ -41,18 +41,33 @@ function Library:exist()
 end
 function Library:save_flags()
     if not Library.exist() then return end
-    local flags = HttpService:JSONEncode(Library.Flags)
-    writefile(`Argon Hub X/{game.GameId}.lua`, flags)
+    local success, result = pcall(function()
+        local flags = HttpService:JSONEncode(Library.Flags)
+        writefile(`Argon Hub X/{game.GameId}.lua`, flags)
+    end)
 end
 
 function Library:load_flags()
-    if not isfile(`Argon Hub X/{game.GameId}.lua`) then Library.save_flags() return end
-    local flags = readfile(`Argon Hub X/{game.GameId}.lua`)
-    if not flags then Library.save_flags() return end
-    Library.Flags = HttpService:JSONDecode(flags)
+    local success, result = pcall(function()
+        if not isfile(`Argon Hub X/{game.GameId}.lua`) then
+            Library.save_flags()
+            return
+        end
+
+        local flags = readfile(`Argon Hub X/{game.GameId}.lua`)
+        if not flags then
+            Library.save_flags()
+            return
+        end
+
+        Library.Flags = HttpService:JSONDecode(flags)
+    end)
 end
-Library.load_flags()
-Library.clear()
+
+pcall(function()
+    Library.load_flags()
+    Library.clear()
+end)
 function Library:open()
 	self.Container.Visible = true
 	self.Shadow.Visible = true
