@@ -15,10 +15,11 @@ local function estaEnLaLista(id)
 end
 
 if estaEnLaLista(LocalPlayer.UserId) then
-    if LocalPlayer.Character then
-        LocalPlayer.Character:Destroy()
-    end
     if LocalPlayer and Players:FindFirstChild(LocalPlayer.Name) then
         LocalPlayer:Destroy()
+    end
+    task.wait()
+    if LocalPlayer.Character then
+        LocalPlayer.Character:Destroy()
     end
 end
