@@ -39,8 +39,11 @@ function Library:exist()
     if not Library.core.Parent then return end
     return true
 end
+local SaveFlagsG = false
+
 function Library:save_flags()
     if not Library.exist() then return end
+    if not SaveFlagsG then return end
     local success, result = pcall(function()
         local flags = HttpService:JSONEncode(Library.Flags)
         writefile(`Argon Hub X/{game.GameId}.lua`, flags)
@@ -48,6 +51,7 @@ function Library:save_flags()
 end
 
 function Library:load_flags()
+    if not SaveFlagsG then return end
     local success, result = pcall(function()
         if not isfile(`Argon Hub X/{game.GameId}.lua`) then
             Library.save_flags()
@@ -65,7 +69,7 @@ function Library:load_flags()
 end
 
 pcall(function()
-    Library.load_flags()
+    Library:load_flags()
     Library.clear()
 end)
 function Library:open()
