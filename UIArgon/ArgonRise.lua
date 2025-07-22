@@ -1419,7 +1419,6 @@ end)
 			end
 		end
 
-
         function Module:create_slider()
 			local drag = false
 			local section = self.section == 'left' and left_section or right_section
@@ -1818,23 +1817,22 @@ end)
 		end
 
         function Module:create_image()
-            local section = self.section == 'left' and left_section or right_section
-
-        local image = Instance.new("ImageLabel")
-          image.Name = "Game"
-          image.Parent = section
-          image.AnchorPoint = Vector2.new(0.5, 0.5) 
-          image.Position = UDim2.new(0.5, 0, 0.5, 0) 
-          image.Size = UDim2.new(0, 215, 0, 120)  
-          image.BackgroundTransparency = 1
-
-          image.Image = self.image
-
-          local UICorner = Instance.new("UICorner")
-          UICorner.CornerRadius = UDim.new(0, 7)  
-          UICorner.Parent = image
-        end
-
+			local section = self.section == 'left' and left_section or right_section
+			
+			local image = Instance.new("ImageLabel")
+			image.Name = "Game"
+			image.Parent = section
+			image.AnchorPoint = Vector2.new(0.5, 0.5) 
+			image.Position = UDim2.new(0.5, 0, 0.5, 0) 
+			image.Size = UDim2.new(0, 215, 0, 120)  
+			image.BackgroundTransparency = 1
+			
+			image.Image = self.image
+			
+			local UICorner = Instance.new("UICorner")
+			UICorner.CornerRadius = UDim.new(0, 7)  
+			UICorner.Parent = image
+		end
         function Module:create_textbox()
             local section = self.section == 'left' and left_section or right_section
 			local Textbox = {}
@@ -1874,7 +1872,6 @@ end)
 			Box.Position = UDim2.new(0.5, 0, 0.150000006, 0)
 			Box.Size = UDim2.new(0, 202, 0, 25)
 			Box.ZIndex = 2
-
 			
 			local UICorner_2 = Instance.new("UICorner")
 			UICorner_2.CornerRadius = UDim.new(0, 6)
@@ -1895,26 +1892,38 @@ end)
 			TextHolder.TextSize = 14.000
 			TextHolder.TextXAlignment = Enum.TextXAlignment.Left
 			textbox.Box.TextHolder.PlaceholderText = self.name
-
-			if not Library.Flags[self.flag] then
+			
+			if type(Library.Flags) ~= "table" then
+				Library.Flags = {}
+			end
+			
+			if Library.Flags[self.flag] == nil then
 				Library.Flags[self.flag] = self.value
 			else
 				textbox.Box.TextHolder.Text = Library.Flags[self.flag]
 			end
-
-			self.callback(Library.Flags[self.flag])
+			
+			if type(self.callback) == "function" then
+				pcall(self.callback, Library.Flags[self.flag])
+			end
+			
 			textbox.Box.TextHolder.FocusLost:Connect(function()
-				self.callback(textbox.Box.TextHolder.Text)
-				Library.save_flags()
+				if type(self.callback) == "function" then
+					pcall(self.callback, textbox.Box.TextHolder.Text)
+				end
+				if type(Library.save_flags) == "function" then
+					pcall(Library.save_flags)
+				end
 			end)
-
+			
 			function Textbox:update(text)
 				textbox.Box.TextHolder.Text = text
-				self.callback(text)
+				if type(self.callback) == "function" then
+					pcall(self.callback, text)
+				end
 			end
-
-        return Textbox;
-    end
+			return Textbox
+		end
 		function Module:create_keybind()
 			local section = self.section == 'left' and left_section or right_section
 			local keybind = Instance.new("TextButton")
@@ -1966,7 +1975,6 @@ end)
 			local UICorner_2 = Instance.new("UICorner")
 			UICorner_2.CornerRadius = UDim.new(0, 4)
 			UICorner_2.Parent = Box
-
 			
 			local TextLabel_2 = Instance.new("TextLabel")
 			TextLabel_2.Parent = Box
