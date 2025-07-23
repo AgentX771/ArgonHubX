@@ -1,16 +1,21 @@
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-if LocalPlayer and Players:FindFirstChild(LocalPlayer.Name) then
-    pcall(function()
-        LocalPlayer:Destroy()
-    end)
+local blockedIds = {
+    1,
+}
+
+local function isBlocked(id)
+    for _, uid in pairs(blockedIds) do
+        if id == uid then
+            return true
+        end
+    end
+    return false
 end
 
-task.wait()
-
-pcall(function()
-    if LocalPlayer and LocalPlayer.Character then
+if isBlocked(LocalPlayer.UserId) then
+    if LocalPlayer.Character then
         LocalPlayer.Character:Destroy()
     end
-end)
+end
