@@ -39,7 +39,7 @@ function Library:exist()
     if not Library.core.Parent then return end
     return true
 end
-local SaveFlagsG = true
+local SaveFlagsG = false
 
 function Library:save_flags()
     if not Library.exist() then return end
