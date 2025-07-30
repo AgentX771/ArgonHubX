@@ -1,4 +1,4 @@
--- Interface made by March and improved by AgentX77
+-- Interface made by Burguer and improved by AgentX77
 
 getgenv().GG = {
     Language = {
@@ -1324,6 +1324,77 @@ function Library:create_ui()
             Header.MouseButton1Click:Connect(function()
                 ModuleManager:change_state(not ModuleManager._state)
             end)
+
+            function ModuleManager:create_action_button(settings: any)
+                if not settings.Order then
+                    LayoutOrderModule = LayoutOrderModule + 1
+                end
+
+                if self._size == 0 then
+                    self._size = 11
+                end
+
+                self._size += 39
+
+                if ModuleManager._state then
+                    Module.Size = UDim2.fromOffset(241, 93 + self._size)
+                end
+
+                Options.Size = UDim2.fromOffset(241, self._size)
+
+                local Button = Instance.new("TextButton")
+                Button.Font = Enum.Font.SourceSans
+                Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+                Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                Button.Text = settings.title or "Button"
+                Button.AutoButtonColor = false
+                Button.BackgroundTransparency = 0.9
+                Button.Name = "ActionButton"
+                Button.Size = UDim2.new(0, 207, 0, 30)
+                Button.BorderSizePixel = 0
+                Button.TextSize = 14
+                Button.BackgroundColor3 = Color3.fromRGB(152, 181, 255)
+                Button.TextXAlignment = Enum.TextXAlignment.Left
+                Button.Parent = Options
+
+                if not settings.Order then
+                    Button.LayoutOrder = LayoutOrderModule
+                else
+                    Button.LayoutOrder = settings.OrderValue
+                end
+
+                local UICorner = Instance.new("UICorner")
+                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = Button
+
+                local Icon = Instance.new("ImageLabel")
+                Icon.BackgroundTransparency = 1
+                Icon.Size = UDim2.new(0, 18, 0, 18)
+                Icon.Position = UDim2.new(1, -24, 0.5, -9)
+                Icon.Image = "rbxassetid://" .. (settings.Ico and settings.Ico ~= "" and settings.Ico or "100347609484563")
+                Icon.Parent = Button
+
+                local Padding = Instance.new("UIPadding")
+                Padding.PaddingLeft = UDim.new(0, 10)
+                Padding.PaddingRight = UDim.new(0, 10)
+                Padding.Parent = Button
+
+                Button.MouseButton1Click:Connect(function()
+                    local tween = TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                        Size = UDim2.new(0, 202, 0, 28)
+                    })
+                    local tweenBack = TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+                        Size = UDim2.new(0, 207, 0, 30)
+                    })
+
+                    tween:Play()
+                    tween.Completed:Connect(function()
+                        tweenBack:Play()
+                    end)
+
+                    pcall(settings.callback)
+                end)
+            end
 
             function ModuleManager:create_paragraph(settings: any)
                 LayoutOrderModule = LayoutOrderModule + 1;
