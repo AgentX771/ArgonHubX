@@ -1,3 +1,5 @@
+-- Interface made by March and improved by AgentX77
+
 getgenv().GG = {
     Language = {
         CheckboxEnabled = "Enabled",
@@ -18,7 +20,6 @@ getgenv().GG = {
     }
 }
 
--- Replace the SelectedLanguage with a reference to GG.Language
 local SelectedLanguage = GG.Language
 
 function convertStringToTable(inputString)
@@ -47,16 +48,15 @@ local CoreGui = cloneref(game:GetService('CoreGui'))
 local Debris = cloneref(game:GetService('Debris'))
 
 local mouse = Players.LocalPlayer:GetMouse()
-local old_March = CoreGui:FindFirstChild('Argon Hub X')
+local old_ArgonHubX = CoreGui:FindFirstChild('ArgonHubX')
 
-if old_March then
-    Debris:AddItem(old_March, 0)
+if old_ArgonHubX then
+    Debris:AddItem(old_ArgonHubX, 0)
 end
 
-if not isfolder("Argon Hub X") then
-    makefolder("Argon Hub X")
+if not isfolder("ArgonHubX") then
+    makefolder("ArgonHubX")
 end
-
 
 local Connections = setmetatable({
     disconnect = function(self, connection)
@@ -78,7 +78,6 @@ local Connections = setmetatable({
     end
 }, Connections)
 
-
 local Util = setmetatable({
     map = function(self: any, value: number, in_minimum: number, in_maximum: number, out_minimum: number, out_maximum: number)
         return (value - in_minimum) * (out_maximum - out_minimum) / (in_maximum - in_minimum) + out_minimum
@@ -95,10 +94,8 @@ local Util = setmetatable({
     end
 }, Util)
 
-
 local AcrylicBlur = {}
 AcrylicBlur.__index = AcrylicBlur
-
 
 function AcrylicBlur.new(object: GuiObject)
     local self = setmetatable({
@@ -113,7 +110,6 @@ function AcrylicBlur.new(object: GuiObject)
     return self
 end
 
-
 function AcrylicBlur:create_folder()
     local old_folder = workspace.CurrentCamera:FindFirstChild('AcrylicBlur')
 
@@ -127,7 +123,6 @@ function AcrylicBlur:create_folder()
 
     self._folder = folder
 end
-
 
 function AcrylicBlur:create_depth_of_fields()
     local depth_of_fields = Lighting:FindFirstChild('AcrylicBlur') or Instance.new('DepthOfFieldEffect')
@@ -155,7 +150,6 @@ function AcrylicBlur:create_depth_of_fields()
     end
 end
 
-
 function AcrylicBlur:create_frame()
     local frame = Instance.new('Frame')
     frame.Size = UDim2.new(1, 0, 1, 0)
@@ -166,7 +160,6 @@ function AcrylicBlur:create_frame()
 
     self._frame = frame
 end
-
 
 function AcrylicBlur:create_root()
     local part = Instance.new('Part')
@@ -191,7 +184,6 @@ function AcrylicBlur:create_root()
     self._root = part  -- Store the part as root
 end
 
-
 function AcrylicBlur:setup()
     self:create_depth_of_fields()
     self:create_folder()
@@ -202,7 +194,6 @@ function AcrylicBlur:setup()
 
     self:check_quality_level()
 end
-
 
 function AcrylicBlur:render(distance: number)
     local positions = {
@@ -256,7 +247,6 @@ function AcrylicBlur:render(distance: number)
     task.spawn(update)
 end
 
-
 function AcrylicBlur:check_quality_level()
     local game_settings = UserSettings().GameSettings
     local quality_level = game_settings.SavedQualityLevel.Value
@@ -273,17 +263,15 @@ function AcrylicBlur:check_quality_level()
     end)
 end
 
-
 function AcrylicBlur:change_visiblity(state: boolean)
     self._root.Transparency = state and 0.98 or 1
 end
-
 
 local Config = setmetatable({
     save = function(self: any, file_name: any, config: any)
         local success_save, result = pcall(function()
             local flags = HttpService:JSONEncode(config)
-            writefile('Argon Hub X/'..file_name..'.json', flags)
+            writefile('ArgonHubX/'..file_name..'.json', flags)
         end)
     
         if not success_save then
@@ -292,13 +280,13 @@ local Config = setmetatable({
     end,
     load = function(self: any, file_name: any, config: any)
         local success_load, result = pcall(function()
-            if not isfile('Argon Hub X/'..file_name..'.json') then
+            if not isfile('ArgonHubX/'..file_name..'.json') then
                 self:save(file_name, config)
         
                 return
             end
         
-            local flags = readfile('Argon Hub X/'..file_name..'.json')
+            local flags = readfile('ArgonHubX/'..file_name..'.json')
         
             if not flags then
                 self:save(file_name, config)
@@ -325,7 +313,6 @@ local Config = setmetatable({
     end
 }, Config)
 
-
 local Library = {
     _config = Config:load(game.GameId),
 
@@ -342,7 +329,6 @@ local Library = {
     _container_position = nil
 }
 Library.__index = Library
-
 
 function Library.new()
     local self = setmetatable({
@@ -473,7 +459,6 @@ function Library:get_screen_scale()
     self._ui_scale = viewport_size_x / 1400
 end
 
-
 function Library:get_device()
     local device = 'Unknown'
 
@@ -487,7 +472,6 @@ function Library:get_device()
 
     self._device = device
 end
-
 
 function Library:removed(action: any)
     self._ui.AncestryChanged:Once(action)
@@ -510,23 +494,22 @@ function Library:remove_table_value(__table: any, table_value: string)
         if value ~= table_value then
             continue
         end
-
         table.remove(__table, index)
     end
 end
 
 function Library:create_ui()
-    local old_March = CoreGui:FindFirstChild('Argon Hub X')
+    local old_ArgonHubX = CoreGui:FindFirstChild('ArgonHubX')
 
-    if old_March then
-        Debris:AddItem(old_March, 0)
+    if old_ArgonHubX then
+        Debris:AddItem(old_ArgonHubX, 0)
     end
 
-    local Argon Hub X = Instance.new('ScreenGui')
-    Argon Hub X.ResetOnSpawn = false
-    Argon Hub X.Name = 'Argon Hub X'
-    Argon Hub X.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    Argon Hub X.Parent = CoreGui
+    local ArgonHubX = Instance.new('ScreenGui')
+    ArgonHubX.ResetOnSpawn = false
+    ArgonHubX.Name = 'ArgonHubX'
+    ArgonHubX.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ArgonHubX.Parent = CoreGui
     
     local Container = Instance.new('Frame')
     Container.ClipsDescendants = true
@@ -539,7 +522,7 @@ function Library:create_ui()
     Container.Size = UDim2.new(0, 0, 0, 0)
     Container.Active = true
     Container.BorderSizePixel = 0
-    Container.Parent = Argon Hub X
+    Container.Parent = ArgonHubX
     
     local UICorner = Instance.new('UICorner')
     UICorner.CornerRadius = UDim.new(0, 10)
@@ -663,7 +646,7 @@ function Library:create_ui()
     local UIScale = Instance.new('UIScale')
     UIScale.Parent = Container    
     
-    self._ui = Argon Hub X
+    self._ui = ArgonHubX
 
     local function on_drag(input: InputObject, process: boolean)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then 
@@ -720,7 +703,7 @@ function Library:create_ui()
     end;
 
     function self:UIVisiblity()
-        Argon Hub X.Enabled = not Argon Hub X.Enabled;
+        ArgonHubX.Enabled = not ArgonHubX.Enabled;
     end;
 
     function self:change_visiblity(state: boolean)
@@ -739,11 +722,10 @@ function Library:create_ui()
     function self:load()
         local content = {}
     
-        for _, object in Argon Hub X:GetDescendants() do
+        for _, object in ArgonHubX:GetDescendants() do
             if not object:IsA('ImageLabel') then
                 continue
             end
-    
             table.insert(content, object)
         end
     
@@ -830,17 +812,14 @@ function Library:create_ui()
         for _, object in Sections:GetChildren() do
             if object == left_section or object == right_section then
                 object.Visible = true
-
                 continue
             end
-
             object.Visible = false
         end
     end
 
     function self:create_tab(title: string, icon: string)
         local TabManager = {}
-
         local LayoutOrder = 0;
 
         local font_params = Instance.new('GetTextBoundsParams')
@@ -1053,7 +1032,7 @@ function Library:create_ui()
                 ModuleName.Text = settings.title or "Skibidi"
             else
                 ModuleName.RichText = true
-                ModuleName.Text = settings.richtext or "<font color='rgb(255,0,0)'>Argon Hub X</font> user"
+                ModuleName.Text = settings.richtext or "<font color='rgb(255,0,0)'>ArgonHubX</font> user"
             end;
             ModuleName.Name = 'ModuleName'
             ModuleName.Size = UDim2.new(0, 205, 0, 13)
@@ -1401,7 +1380,7 @@ function Library:create_ui()
                     Body.Text = settings.text or "Skibidi"
                 else
                     Body.RichText = true
-                    Body.Text = settings.richtext or "<font color='rgb(255,0,0)'>Argon Hub X</font> user"
+                    Body.Text = settings.richtext or "<font color='rgb(255,0,0)'>ArgonHubX</font> user"
                 end
                 
                 Body.Size = UDim2.new(1, -10, 0, 20)
@@ -1471,7 +1450,7 @@ function Library:create_ui()
                     Body.Text = settings.text or "Skibidi" -- Default text
                 else
                     Body.RichText = true
-                    Body.Text = settings.richtext or "<font color='rgb(255,0,0)'>Argon Hub X</font> user" -- Default rich text
+                    Body.Text = settings.richtext or "<font color='rgb(255,0,0)'>ArgonHubX</font> user" -- Default rich text
                 end
             
                 Body.Size = UDim2.new(1, -10, 1, 0)
@@ -1502,7 +1481,7 @@ function Library:create_ui()
                         Body.Text = new_settings.text or "Skibidi" -- Default text
                     else
                         Body.RichText = true
-                        Body.Text = new_settings.richtext or "<font color='rgb(255,0,0)'>Argon Hub X</font> user" -- Default rich text
+                        Body.Text = new_settings.richtext or "<font color='rgb(255,0,0)'>ArgonHubX</font> user" -- Default rich text
                     end
                 end;
             
@@ -2647,5 +2626,4 @@ function Library:create_ui()
 
     return self
 end
-
 return Library
