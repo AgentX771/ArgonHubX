@@ -743,6 +743,137 @@ function Library:create_ui()
 
     self:change_visiblity(true)
 
+    function ToggleUIARG()
+        local a = game:GetService("CoreGui"):FindFirstChild("ClosePanel")
+        if a then
+            a:Destroy()
+        end
+
+        local c = game:GetService("UserInputService")
+        local d = game:GetService("TweenService")
+        local function e(f, g)
+            local h = nil
+            local i = nil
+            local j = nil
+            local k = nil
+            local function l(m)
+                local n = m.Position - j
+                local o = UDim2.new(k.X.Scale, k.X.Offset + n.X, k.Y.Scale, k.Y.Offset + n.Y)
+                local p = d:Create(g, TweenInfo.new(0.2), {Position = o})
+                p:Play()
+            end
+            f.InputBegan:Connect(
+                function(m)
+                    if m.UserInputType == Enum.UserInputType.MouseButton1 or m.UserInputType == Enum.UserInputType.Touch then
+                        h = true
+                        j = m.Position
+                        k = g.Position
+                        m.Changed:Connect(
+                            function()
+                                if m.UserInputState == Enum.UserInputState.End then
+                                    h = false
+                                end
+                            end
+                        )
+                    end
+                end
+            )
+            f.InputChanged:Connect(
+                function(m)
+                    if m.UserInputType == Enum.UserInputType.MouseMovement or m.UserInputType == Enum.UserInputType.Touch then
+                        i = m
+                    end
+                end
+            )
+            c.InputChanged:Connect(
+                function(m)
+                    if m == i and h then
+                        l(m)
+                    end
+                end
+            )
+        end
+        local q = Instance.new("ScreenGui")
+        local r = Instance.new("Frame")
+        local s = Instance.new("UICorner")
+        local t = Instance.new("ImageButton")
+        local u = Instance.new("UICorner")
+        local v = Instance.new("Frame")
+        q.Name = "ClosePanel"
+        q.Parent = game:GetService("CoreGui")
+        r.Parent = q
+        r.BackgroundColor3 = Color3.fromRGB(9, 8, 8)
+        r.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        r.BorderSizePixel = 0
+        r.Position = UDim2.new(0.304423213, 0, 0.0389447249, 0)
+        r.Size = UDim2.new(0, 60, 0, 60)
+        s.Parent = r
+        t.Name = "Button"
+        t.Parent = r
+        t.Active = true
+        t.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+        t.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        t.BorderSizePixel = 0
+        t.Position = UDim2.new(-2.17982702e-07, 0, 0, 0)
+        t.Size = UDim2.new(0, 60, 0, 60)
+        t.Image = "http://www.roblox.com/asset/?id=115496895515849"
+        u.Parent = t
+        v.Name = "Top"
+        v.Parent = r
+        v.BackgroundColor3 = Color3.fromRGB(9, 8, 8)
+        v.BackgroundTransparency = 1
+        v.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        v.BorderSizePixel = 0
+        v.Size = UDim2.new(0, 60, 0, 60)
+        local w = false
+        t.MouseButton1Click:Connect(
+            function()
+                if minimized then
+                    self:change_visiblity(true)
+                else
+                    self:change_visiblity(false)
+                end
+            end
+        )
+        t.MouseEnter:Connect(
+            function()
+                d:Create(
+                    t,
+                    TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                    {ImageColor3 = Color3.fromRGB(50, 50, 50)}
+                ):Play()
+            end
+        )
+        t.MouseLeave:Connect(
+            function()
+                d:Create(
+                    t,
+                    TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                    {ImageColor3 = Color3.fromRGB(255, 255, 255)}
+                ):Play()
+            end
+        )
+        e(v, r)
+    end
+
+    local UserInputService = game:GetService("UserInputService")
+    local device
+
+    local success, platform = pcall(function()
+        return UserInputService:GetPlatform()
+    end)
+
+    if success and platform then
+        if platform == Enum.Platform.Windows or platform == Enum.Platform.OSX or platform == Enum.Platform.Linux then
+        elseif platform == Enum.Platform.Android or platform == Enum.Platform.IOS then
+            ToggleUIARG()
+        else
+            ToggleUIARG()
+        end
+    else
+        ToggleUIARG()
+    end
+
     function self:load()
         local content = {}
     
