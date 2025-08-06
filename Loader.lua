@@ -1,4 +1,4 @@
--- This code was obfuscated using Argon Hub X Obfuscator V1.04
+-- This code was obfuscated using Argon Hub X Obfuscator V1.0.4
 -- • Plan: VIP Premium
 -- • Obfuscation: Minimifer + Minimum Security
 
