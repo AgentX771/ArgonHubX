@@ -605,7 +605,7 @@ function Library:create_ui()
     Icon.ScaleType = Enum.ScaleType.Fit
     Icon.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Icon.AnchorPoint = Vector2.new(0, 0.5)
-    Icon.Image = 'rbxassetid://107819132007001'
+    Icon.Image = 'rbxassetid://83396143056051'
     Icon.BackgroundTransparency = 1
     Icon.Position = UDim2.new(0.02500000037252903, 0, 0.054999999701976776, 0)
     Icon.Name = 'Icon'
