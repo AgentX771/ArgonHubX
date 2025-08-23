@@ -14,6 +14,7 @@ Welcome to **Argon Hub X**, The ultimate script for All Games, featuring a user-
 ## 📜 Supported Games
 🔹 **Glass Bridge**
 🔹 **Blade Ball**
+🔹 **Evade**
 
 ## 🛠 Installation
 ```lua
