@@ -1,5 +1,118 @@
--- This code was obfuscated using Argon Hub X Obfuscator V1.0.4
--- • Plan: VIP Premium
--- • Obfuscation: Minimifer + Minimum Security
+local games = {
+    [87854376962069] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Glass%20Bridge.lua", true))()
+        end)
+    end,
+    [9872472334] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Evade.lua", true))()
+        end)
+    end,
+    [13772394] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15144787112] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15234596844] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [16281300371] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [16044264830] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [14732610803] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15131065025] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15264892126] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [14915220621] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15517169103] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [15509350986] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [16581648071] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [16581637217] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end,
+    [17757592456] = function()
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+        end)
+    end
+}
 
-local a=87854376962069;local b=9872472334;local c={[13772394625]=true,[15144787112]=true,[15234596844]=true,[16281300371]=true,[16044264830]=true,[14732610803]=true,[15131065025]=true,[15264892126]=true,[14915220621]=true,[15517169103]=true,[15509350986]=true,[16581648071]=true,[16581637217]=true,[17757592456]=true}local d=game.PlaceId;pcall(function()if d==a then pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/Glass%20Bridge.lua"))()end)elseif d==b then pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/Evade.lua"))()end)else local e=game:GetService("ReplicatedStorage"):FindFirstChild("Remotes")local f=e and e:FindFirstChild("ChangedAfkMode")if f then pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/Blade%20Ball.lua"))()end)elseif c[d]then pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/Blade%20Ball.lua"))()end)else local g=game:GetService("MarketplaceService"):GetProductInfo(d).Name;local h=string.lower(g)if string.find(h,"blade ball")or string.find(h,"blade")or string.find(h,"ball")then pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/Blade%20Ball.lua"))()end)else pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/refs/heads/main/Games/IDMusic.lua"))()end)end end end end)
+local evade = false
+if games[game.PlaceId] then
+    pcall(function()
+        games[game.PlaceId]()
+    end)
+else
+    pcall(function()
+        local remotefire = game:GetService("ReplicatedStorage"):FindFirstChild("Remotes")
+        local changedAfkMode
+        if remotefire then
+            changedAfkMode = remotefire:FindFirstChild("ChangedAfkMode")
+        end
+        if not evade and changedAfkMode then
+            pcall(function()
+                evade = true
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+            end)
+        end
+        local gameName
+        pcall(function()
+            gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+        end)
+        if not evade and gameName and (string.find(gameName, "blade ball") or string.find(gameName, "blade") or string.find(gameName, "ball")) then
+            pcall(function()
+                evade = true
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
+            end)
+        end
+        if not evade then
+            pcall(function()
+                game.Players.LocalPlayer:Kick("Argon Hub X It is not in the list of supported games\n".. (gameName or "Unknown Game"))
+            end)
+        end
+    end)
+end
