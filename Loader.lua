@@ -9,7 +9,7 @@ local games = {
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Evade.lua", true))()
         end)
     end,
-    [13772394] = function()
+    [13772394625] = function()
         pcall(function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Games/Blade%20Ball.lua", true))()
         end)
