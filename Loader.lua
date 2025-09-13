@@ -1,3 +1,9 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "⚠️ Important",
+    Text = "For Auto Parry and Auto Spam to work,\nturn the Toggle off and on again.",
+    Duration = 20
+})
+
 local games = {
     [87854376962069] = function()
         pcall(function()
