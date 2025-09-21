@@ -1,5 +1,6 @@
 local evade = false
 local downserver = false
+
 local games = {
     [87854376962069] = function()
         pcall(function()
