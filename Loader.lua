@@ -1,3 +1,5 @@
+local evade = false
+local downserver = false
 local games = {
     [87854376962069] = function()
         pcall(function()
@@ -81,7 +83,11 @@ local games = {
     end
 }
 
-local evade = false
+if downserver then
+    game:GetService("Players").LocalPlayer:Kick("Argon Hub X | Intelligence:\n\nServers are currently undergoing maintenance. Please try again in a little while!")
+    evade = true
+end
+
 if games[game.PlaceId] then
     pcall(function()
         games[game.PlaceId]()
