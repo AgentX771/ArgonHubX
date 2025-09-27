@@ -85,7 +85,7 @@ local games = {
 }
 
 if downserver then
-    game:GetService("Players").LocalPlayer:Kick("The Argon Hub X server is currently down. Please try running the script again later. 🥲")
+    game:GetService("Players").LocalPlayer:Kick("The Argon Hub X server is currently down. Please try running the script again later. :(")
     evade = true
 end
 
