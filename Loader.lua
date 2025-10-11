@@ -1,5 +1,5 @@
 local evade = false
-local downscript = true
+local downscript = false
 
 local games = {
     [87854376962069] = function()
