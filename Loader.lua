@@ -1,5 +1,5 @@
 local evade = false
-local downserver = false
+local downscript = true
 
 local games = {
     [87854376962069] = function()
@@ -84,8 +84,13 @@ local games = {
     end
 }
 
-if downserver then
-    game:GetService("Players").LocalPlayer:Kick("The Argon Hub X server is currently down. Please try running the script again later. :(")
+if downscript then
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Argon Hub X:";
+        Text = "At the moment the script is down, try again later.";
+        Icon = "rbxassetid://119371425382054";
+        Duration = 5;
+    })
     evade = true
 end
 
