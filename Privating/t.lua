@@ -54,7 +54,7 @@ do
                 MainColor = "1a1a1a",
                 AccentColor = "ff0000",
                 BackgroundColor = "0f0f0f",
-                OutlineColor = "330000"
+                OutlineColor = "000000"
             },
         },
 
