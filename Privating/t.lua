@@ -359,7 +359,7 @@ do
         groupbox
             :AddLabel("Background color")
             :AddColorPicker("BackgroundColor", { Default = self.Library.Scheme.BackgroundColor })
-        groupbox:AddLabel("Main color"):AddColorPicker("MainColor", { Default = self.Library.Scheme.MainColor })
+        groupbox:AddLabel("Main color"):AddColorPicker("MainColor", {Default = Color3.new(255, 0, 0)})
         groupbox:AddLabel("Accent color"):AddColorPicker("AccentColor", { Default = self.Library.Scheme.AccentColor })
         groupbox
             :AddLabel("Outline color")
@@ -444,28 +444,6 @@ do
             self.Library.Options.ThemeManager_CustomThemeList:SetValue(nil)
         end)
         groupbox:AddButton("Refresh list", function()
-            self.Library.Options.ThemeManager_CustomThemeList:SetValues(self:ReloadCustomThemes())
-            self.Library.Options.ThemeManager_CustomThemeList:SetValue(nil)
-        end)
-        groupbox:AddButton("Set as default", function()
-            if
-                self.Library.Options.ThemeManager_CustomThemeList.Value ~= nil
-                and self.Library.Options.ThemeManager_CustomThemeList.Value ~= ""
-            then
-                self:SaveDefault(self.Library.Options.ThemeManager_CustomThemeList.Value)
-                self.Library:Notify(
-                    string.format("Set default theme to %q", self.Library.Options.ThemeManager_CustomThemeList.Value)
-                )
-            end
-        end)
-        groupbox:AddButton("Reset default", function()
-            local success = pcall(delfile, self.Folder .. "/themes/default.txt")
-            if not success then
-                self.Library:Notify("Failed to reset default: delete file error")
-                return
-            end
-
-            self.Library:Notify("Set default theme to nothing")
             self.Library.Options.ThemeManager_CustomThemeList:SetValues(self:ReloadCustomThemes())
             self.Library.Options.ThemeManager_CustomThemeList:SetValue(nil)
         end)
