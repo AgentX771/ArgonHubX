@@ -359,8 +359,8 @@ do
         groupbox
             :AddLabel("Background color")
             :AddColorPicker("BackgroundColor", { Default = self.Library.Scheme.BackgroundColor })
-        groupbox:AddLabel("Main color"):AddColorPicker("MainColor", {Default = Color3.new(255, 0, 0)})
-        groupbox:AddLabel("Accent color"):AddColorPicker("AccentColor", { Default = self.Library.Scheme.AccentColor })
+        groupbox:AddLabel("Main color"):AddColorPicker("MainColor", {Default = self.Library.Scheme.MainColor})
+        groupbox:AddLabel("Accent color"):AddColorPicker("AccentColor", {Default = Color3.new(255, 0, 0)})
         groupbox
             :AddLabel("Outline color")
             :AddColorPicker("OutlineColor", { Default = self.Library.Scheme.OutlineColor })
