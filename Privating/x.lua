@@ -1954,7 +1954,7 @@ function Library:Unload()
 
     getgenv().Library = nil
 end
-
+AddToggle
 local CheckIcon = Library:GetIcon("check")
 local ArrowIcon = Library:GetIcon("chevron-up")
 local ResizeIcon = Library:GetIcon("move-diagonal-2")
@@ -3922,6 +3922,11 @@ do
 
         Toggles[Idx] = Toggle
 
+        if Toggle.Value then
+            Library:SafeCallback(Toggle.Callback, Toggle.Value)
+            Library:SafeCallback(Toggle.Changed, Toggle.Value)
+        end
+
         return Toggle
     end
 
@@ -4083,6 +4088,11 @@ do
         Input.Default = Input.Value
 
         Options[Idx] = Input
+
+        if Input.Value ~= nil and not Input.Disabled then
+            Library:SafeCallback(Input.Callback, Input.Value)
+            Library:SafeCallback(Input.Changed, Input.Value)
+        end
 
         return Input
     end
@@ -4340,6 +4350,11 @@ do
         Slider.Default = Slider.Value
 
         Options[Idx] = Slider
+
+        if Slider.Value ~= nil and not Slider.Disabled then
+            Library:SafeCallback(Slider.Callback, Slider.Value)
+            Library:SafeCallback(Slider.Changed, Slider.Value)
+        end
 
         return Slider
     end
@@ -4785,6 +4800,12 @@ do
         Dropdown.DefaultValues = Dropdown.Values
 
         Options[Idx] = Dropdown
+
+        if not Dropdown.Disabled then
+            Library:UpdateDependencyBoxes()
+            Library:SafeCallback(Dropdown.Callback, Dropdown.Value)
+            Library:SafeCallback(Dropdown.Changed, Dropdown.Value)
+        end
 
         return Dropdown
     end
