@@ -1954,7 +1954,7 @@ function Library:Unload()
 
     getgenv().Library = nil
 end
-AddToggle
+
 local CheckIcon = Library:GetIcon("check")
 local ArrowIcon = Library:GetIcon("chevron-up")
 local ResizeIcon = Library:GetIcon("move-diagonal-2")
