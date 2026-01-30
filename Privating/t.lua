@@ -49,76 +49,201 @@ do
     ThemeManager.BuiltInThemes = {
         ["Default"] = {
             1,
-            { FontColor = "ffffff", MainColor = "191919", AccentColor = "7d55ff", BackgroundColor = "0f0f0f", OutlineColor = "282828" },
+            { 
+                FontColor = "ffffff",
+                MainColor = "1a1a1a",
+                AccentColor = "ff0000",
+                BackgroundColor = "0f0f0f",
+                OutlineColor = "330000"
+            },
         },
-        ["BBot"] = {
+
+        ["Red Neon"] = {
             2,
-            { FontColor = "ffffff", MainColor = "1e1e1e", AccentColor = "7e48a3", BackgroundColor = "232323", OutlineColor = "141414" },
+            {
+                FontColor = "ffffff",
+                MainColor = "1c1c1c",
+                AccentColor = "ff1a1a",
+                BackgroundColor = "121212",
+                OutlineColor = "400000"
+            },
         },
-        ["Fatality"] = {
+
+        ["Crimson Future"] = {
             3,
-            { FontColor = "ffffff", MainColor = "1e1842", AccentColor = "c50754", BackgroundColor = "191335", OutlineColor = "3c355d" },
+            {
+                FontColor = "ffffff",
+                MainColor = "201214",
+                AccentColor = "dc143c",
+                BackgroundColor = "140a0c",
+                OutlineColor = "4a0f18"
+            },
         },
-        ["Jester"] = {
+
+        ["Scarlet Dark"] = {
             4,
-            { FontColor = "ffffff", MainColor = "242424", AccentColor = "db4467", BackgroundColor = "1c1c1c", OutlineColor = "373737" },
+            {
+                FontColor = "ffffff",
+                MainColor = "242424",
+                AccentColor = "ff3b3b",
+                BackgroundColor = "1a1a1a",
+                OutlineColor = "3d0d0d"
+            },
         },
-        ["Mint"] = {
+
+        ["Ruby Tech"] = {
             5,
-            { FontColor = "ffffff", MainColor = "242424", AccentColor = "3db488", BackgroundColor = "1c1c1c", OutlineColor = "373737" },
+            {
+                FontColor = "ffffff",
+                MainColor = "1e1e1e",
+                AccentColor = "e0115f",
+                BackgroundColor = "141414",
+                OutlineColor = "4b0a24"
+            },
         },
-        ["Tokyo Night"] = {
+
+        ["Tokyo Red Night"] = {
             6,
-            { FontColor = "ffffff", MainColor = "191925", AccentColor = "6759b3", BackgroundColor = "16161f", OutlineColor = "323232" },
+            {
+                FontColor = "ffffff",
+                MainColor = "191919",
+                AccentColor = "ff004c",
+                BackgroundColor = "121212",
+                OutlineColor = "330014"
+            },
         },
-        ["Ubuntu"] = {
+
+        ["Inferno"] = {
             7,
-            { FontColor = "ffffff", MainColor = "3e3e3e", AccentColor = "e2581e", BackgroundColor = "323232", OutlineColor = "191919" },
+            {
+                FontColor = "ffffff",
+                MainColor = "2a2a2a",
+                AccentColor = "ff4500",
+                BackgroundColor = "1b1b1b",
+                OutlineColor = "4a1a00"
+            },
         },
-        ["Quartz"] = {
+
+        ["Blood Quartz"] = {
             8,
-            { FontColor = "ffffff", MainColor = "232330", AccentColor = "426e87", BackgroundColor = "1d1b26", OutlineColor = "27232f" },
+            {
+                FontColor = "ffffff",
+                MainColor = "232330",
+                AccentColor = "b11226",
+                BackgroundColor = "1b1b26",
+                OutlineColor = "3a1b22"
+            },
         },
-        ["Nord"] = {
+
+        ["Nord Red"] = {
             9,
-            { FontColor = "eceff4", MainColor = "3b4252", AccentColor = "88c0d0", BackgroundColor = "2e3440", OutlineColor = "4c566a" },
+            {
+                FontColor = "eceff4",
+                MainColor = "3b2a2a",
+                AccentColor = "bf616a",
+                BackgroundColor = "2a1f1f",
+                OutlineColor = "5a3030"
+            },
         },
-        ["Dracula"] = {
+
+        ["Dracula Red"] = {
             10,
-            { FontColor = "f8f8f2", MainColor = "44475a", AccentColor = "ff79c6", BackgroundColor = "282a36", OutlineColor = "6272a4" },
+            {
+                FontColor = "f8f8f2",
+                MainColor = "44475a",
+                AccentColor = "ff5555",
+                BackgroundColor = "282a36",
+                OutlineColor = "6a2b2b"
+            },
         },
-        ["Monokai"] = {
+
+        ["Monokai Red"] = {
             11,
-            { FontColor = "f8f8f2", MainColor = "272822", AccentColor = "f92672", BackgroundColor = "1e1f1c", OutlineColor = "49483e" },
+            {
+                FontColor = "f8f8f2",
+                MainColor = "272822",
+                AccentColor = "ff2e63",
+                BackgroundColor = "1e1f1c",
+                OutlineColor = "4b1a2a"
+            },
         },
-        ["Gruvbox"] = {
+
+        ["Gruvbox Red"] = {
             12,
-            { FontColor = "ebdbb2", MainColor = "3c3836", AccentColor = "fb4934", BackgroundColor = "282828", OutlineColor = "504945" },
+            {
+                FontColor = "ebdbb2",
+                MainColor = "3c3836",
+                AccentColor = "cc241d",
+                BackgroundColor = "282828",
+                OutlineColor = "5a1f1a"
+            },
         },
-        ["Solarized"] = {
+
+        ["Solarized Red"] = {
             13,
-            { FontColor = "839496", MainColor = "073642", AccentColor = "cb4b16", BackgroundColor = "002b36", OutlineColor = "586e75" },
+            {
+                FontColor = "93a1a1",
+                MainColor = "073642",
+                AccentColor = "dc322f",
+                BackgroundColor = "002b36",
+                OutlineColor = "5a1f1a"
+            },
         },
-        ["Catppuccin"] = {
+
+        ["Catppuccin Red"] = {
             14,
-            { FontColor = "d9e0ee", MainColor = "302d41", AccentColor = "f5c2e7", BackgroundColor = "1e1e2e", OutlineColor = "575268" },
+            {
+                FontColor = "d9e0ee",
+                MainColor = "302d41",
+                AccentColor = "f38ba8",
+                BackgroundColor = "1e1e2e",
+                OutlineColor = "4a2730"
+            },
         },
-        ["One Dark"] = {
+
+        ["One Dark Red"] = {
             15,
-            { FontColor = "abb2bf", MainColor = "282c34", AccentColor = "c678dd", BackgroundColor = "21252b", OutlineColor = "5c6370" },
+            {
+                FontColor = "abb2bf",
+                MainColor = "282c34",
+                AccentColor = "e06c75",
+                BackgroundColor = "21252b",
+                OutlineColor = "5a2a2a"
+            },
         },
-        ["Cyberpunk"] = {
+
+        ["Cyber Red"] = {
             16,
-            { FontColor = "f9f9f9", MainColor = "262335", AccentColor = "00ff9f", BackgroundColor = "1a1a2e", OutlineColor = "413c5e" },
+            {
+                FontColor = "ffffff",
+                MainColor = "1f1b29",
+                AccentColor = "ff073a",
+                BackgroundColor = "14121c",
+                OutlineColor = "4a0014"
+            },
         },
-        ["Oceanic Next"] = {
+
+        ["Oceanic Red"] = {
             17,
-            { FontColor = "d8dee9", MainColor = "1b2b34", AccentColor = "6699cc", BackgroundColor = "16232a", OutlineColor = "343d46" },
+            {
+                FontColor = "d8dee9",
+                MainColor = "1b2b34",
+                AccentColor = "ff4d4d",
+                BackgroundColor = "16232a",
+                OutlineColor = "4a1f1f"
+            },
         },
-        ["Material"] = {
+
+        ["Material Red"] = {
             18,
-            { FontColor = "eeffff", MainColor = "212121", AccentColor = "82aaff", BackgroundColor = "151515", OutlineColor = "424242" },
-        }
+            {
+                FontColor = "ffffff",
+                MainColor = "212121",
+                AccentColor = "f44336",
+                BackgroundColor = "151515",
+                OutlineColor = "4a1a1a"
+            },
+        },
     }
 
     function ThemeManager:SetLibrary(library)
