@@ -2178,7 +2178,7 @@ local Library do
                             SecondsPassed = SecondsPassed - MinutesPassed * 60
                         end
 
-                        Items["SessionDuration"].Instance.Text = "Session duration: "..MinutesPassed..":"..SecondsPassed
+                        Items["SessionDuration"].Instance.Text = "Session Duration: "..MinutesPassed..":"..SecondsPassed
                     end
                 end)
 
