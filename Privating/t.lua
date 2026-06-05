@@ -404,7 +404,7 @@ do
         groupbox:AddLabel("Font Color"):AddColorPicker("FontColor", { Default = self.Library.Scheme.FontColor })
         groupbox:AddToggle("BackgroundImageEnabled", { Text = "Background Image", Default = self.Library.Scheme.BackgroundImageEnabled })
         groupbox:AddInput("BackgroundImage", { Text = "Background Image:", Default = ""})
-        groupbox:AddToggle("WindowGlow", { Text = "Window Glow",  Default = self.Library.Scheme.WindowGlow })
+        groupbox:AddToggle("WindowGlow", { Text = "Window Glow",  Default = false })
         groupbox:AddDropdown("FontFace", { Text = "Font Face:", Default = "Code", Values = self.Fonts })
 
         local ThemesArray = {}
